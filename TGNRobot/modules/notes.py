@@ -4,7 +4,7 @@ import random
 from typing import Optional
 
 import TGNRobot.modules.sql.notes_sql as sql
-from TGNRobot import LOGGER, JOIN_LOGGER, SUPPORT_CHAT, dispatcher, DRAGONS
+from TGNRObot import LOGGER, JOIN_LOGGER, SUPPORT_CHAT, dispatcher, DRAGONS
 from TGNRobot.modules.disable import DisableAbleCommandHandler
 from TGNRobot.modules.helper_funcs.handlers import MessageHandlerChecker
 from TGNRobot.modules.helper_funcs.chat_status import user_admin, connection_status
@@ -542,7 +542,7 @@ A button can be added to a note by using standard markdown link syntax - the lin
 
 """
 
-__mod_name__ = "Notes"
+__mod_name__ = "NOTES"
 
 GET_HANDLER = CommandHandler("get", cmd_get)
 HASH_GET_HANDLER = MessageHandler(Filters.regex(r"^#[^\s]+"), hash_get)
