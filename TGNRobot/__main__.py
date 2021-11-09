@@ -224,7 +224,7 @@ def start(update: Update, context: CallbackContext):
             )
     else:
         update.effective_message.reply_video(
-            START_IMG, caption= "<code>Oi Baka [Lelouch](https://telegra.ph/file/94bed6195cecfeeb7d6bf.jpg) is awake❤\nI am Awake Since</code>: <code>{}</code>".format(
+            START_IMG, caption= "<code>Oi Baka Lelouch is awake❤\nI am Awake Since</code>: <code>{}</code>".format(
                 uptime            
             ),
             parse_mode=ParseMode.HTML,
