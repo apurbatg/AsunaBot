@@ -87,13 +87,13 @@ buttons = [
     [
         InlineKeyboardButton(text="POWERED BY", url=f"https://t.me/DeZilleius"),
         InlineKeyboardButton(
-            text="ꜱᴜᴘᴘᴏʀᴛ", url=f"https://t.me/{SUPPORT_CHAT}"
+            text="SUPPORT", url=f"https://t.me/{SUPPORT_CHAT}"
         ),
     ],
     [
         InlineKeyboardButton(text="UPDATES", url=f"https://t.me/Lelouch_update_channel"),
         InlineKeyboardButton(
-            text="ᴛɢɴ ᴄʜᴀᴛ", url=f"https://t.me/greatpersonxd"
+            text="MAINTAINED BY", url=f"https://t.me/DeZilleius"
         ),
     ],
     [
@@ -224,7 +224,7 @@ def start(update: Update, context: CallbackContext):
             )
     else:
         update.effective_message.reply_video(
-            START_IMG, caption= "<code>Zaid is Here For You❤\nI am Awake Since</code>: <code>{}</code>".format(
+            START_IMG, caption= "<code>Oi Baka [Lelouch](https://telegra.ph/file/94bed6195cecfeeb7d6bf.jpg) is awake❤\nI am Awake Since</code>: <code>{}</code>".format(
                 uptime            
             ),
             parse_mode=ParseMode.HTML,
@@ -691,7 +691,7 @@ def main():
 
     if SUPPORT_CHAT is not None and isinstance(SUPPORT_CHAT, str):
         try:
-            dispatcher.bot.sendMessage(f"@{SUPPORT_CHAT}", "Yes I'm alive 😹")
+            dispatcher.bot.sendMessage(f"@{SUPPORT_CHAT}", "Yes I'm alive}")
         except Unauthorized:
             LOGGER.warning(
                 "Bot isnt able to send message to support_chat, go and check!"
