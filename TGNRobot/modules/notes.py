@@ -4,7 +4,7 @@ import random
 from typing import Optional
 
 import TGNRobot.modules.sql.notes_sql as sql
-from TGNRObot import LOGGER, JOIN_LOGGER, SUPPORT_CHAT, dispatcher, DRAGONS
+from TGNRobot import LOGGER, JOIN_LOGGER, SUPPORT_CHAT, dispatcher, DRAGONS
 from TGNRobot.modules.disable import DisableAbleCommandHandler
 from TGNRobot.modules.helper_funcs.handlers import MessageHandlerChecker
 from TGNRobot.modules.helper_funcs.chat_status import user_admin, connection_status
