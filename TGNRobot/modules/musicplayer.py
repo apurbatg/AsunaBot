@@ -1,4 +1,4 @@
-__mod_name__ = "Lelouch Vc"
+__mod_name__ = "Asuna Vc"
 
 __help__ = """
 =>> *Song Playing* 🎧 
