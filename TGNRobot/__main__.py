@@ -74,26 +74,26 @@ def get_readable_time(seconds: int) -> str:
 
 
 PM_START_TEXT = """
-Hi, I am Lelouch
+Hi, I am Asuna
 `I am a Anime themed Group management Bot! ʜɪᴛ` /help
- [❤](https://telegra.ph/file/94bed6195cecfeeb7d6bf.jpg)
+ [❤](https://telegra.ph/file/84919743a83c80c870ac8.jpg)
 """
 
 buttons = [
     [
         InlineKeyboardButton(
-            text="ADD LELOUCH TO YOUR GROUP", url="t.me/LelouchXRobot?startgroup=true"),
+            text="ADD ASUNA TO YOUR GROUP", url="t.me/AsunaYuki_robot?startgroup=true"),
     ],
     [
-        InlineKeyboardButton(text="POWERED BY", url=f"https://t.me/DeZilleius"),
+        InlineKeyboardButton(text="OFFTOPIC", url=f"https://t.me/animesecretchats"),
         InlineKeyboardButton(
             text="SUPPORT", url=f"https://t.me/{SUPPORT_CHAT}"
         ),
     ],
     [
-        InlineKeyboardButton(text="UPDATES", url=f"https://t.me/Lelouch_update_channel"),
+        InlineKeyboardButton(text="UPDATES", url=f"https://t.me/asuna_updates"),
         InlineKeyboardButton(
-            text="MAINTAINED BY", url=f"https://t.me/DeZilleius"
+            text="BLACK X", url=f"https://t.me/Blackxofficial"
         ),
     ],
     [
@@ -104,9 +104,9 @@ buttons = [
 
 HELP_STRINGS = """
 `ʏᴏᴜ ᴄᴀɴ ᴄʜᴏᴏꜱᴇ ᴀɴ ᴏᴘᴛɪᴏɴ ʙᴇʟᴏᴡ, ʙʏ ᴄʟɪᴄᴋɪɴɢ ᴀ ʙᴜᴛᴛᴏɴ..`
-ᴀʟꜱᴏ ʏᴏᴜ ᴄᴀɴ ᴀꜱᴋ ᴀɴʏᴛʜɪɴɢ ɪɴ ꜱᴜᴘᴘᴏʀᴛ ɢʀᴏᴜᴘ [❤️](https://telegra.ph/file/94bed6195cecfeeb7d6bf.jpg)"""
+ᴀʟꜱᴏ ʏᴏᴜ ᴄᴀɴ ᴀꜱᴋ ᴀɴʏᴛʜɪɴɢ ɪɴ ꜱᴜᴘᴘᴏʀᴛ ɢʀᴏᴜᴘ [❤️](https://telegra.ph/file/33f65e60966e458e5218a.jpg)"""
 
-START_IMG = "https://telegra.ph/file/94bed6195cecfeeb7d6bf.jpg"
+START_IMG = "https://telegra.ph/file/33f65e60966e458e5218a.jpg"
 
 DONATE_STRING = """Heya, glad to hear you want to donate!
  You can support the project [Lucifer](t.me/detctective_de) \
