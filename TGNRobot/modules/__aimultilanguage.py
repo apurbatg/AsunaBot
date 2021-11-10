@@ -139,7 +139,7 @@ def list_all_chats(update: Update, context: CallbackContext):
     update.effective_message.reply_text(text, parse_mode="HTML")
 
 __help__ = """
-Lelouch has a special feature that lets the bot talk and provide a more interactive group chat experience.
+Asuna has a special feature that lets the bot talk and provide a more interactive group chat experience.
 *Admins only Commands*:
  • `/Chatbot`*:* Shows chatbot control panel
   
