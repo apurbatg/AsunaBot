@@ -6,7 +6,7 @@ from telegram import ParseMode, Update, ChatPermissions
 from telegram.ext import CallbackContext, run_async
 from telegram.error import BadRequest
 
-import AsunaRobot.modules.animequotes_strings as animequotes_strings
+import TGNRobot.modules.animequotes_strings as animequotes_strings
 from TGNRobot import dispatcher
 from TGNRobot.modules.disable import DisableAbleCommandHandler
 from TGNRobot.modules.helper_funcs.chat_status import (is_user_admin)
