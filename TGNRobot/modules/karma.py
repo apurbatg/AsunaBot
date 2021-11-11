@@ -1,5 +1,6 @@
+from TGNRobot import pbot as app
 from TGNRobot.utils.errors import capture_err
-from TGNRobot.utils.dbfunc import (update_karma, get_karma, get_karmas,
+fromTGNRobot.utils.dbfunc import (update_karma, get_karma, get_karmas,
                                    int_to_alpha, alpha_to_int)
 from TGNRobot.utils.filter_groups import karma_positive_group, karma_negative_group
 from pyrogram import filters
