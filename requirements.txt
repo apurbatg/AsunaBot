@@ -7,7 +7,6 @@ faker
 arq
 odmantic
 redis
-cv2
 httpx
 pykeyboard
 beautifulsoup4
