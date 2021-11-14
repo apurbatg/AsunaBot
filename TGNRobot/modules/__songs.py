@@ -6,8 +6,8 @@ import requests
 import wget
 from pyrogram import filters
 
-from TGNRobot import pbot as zaid
-from TGNRobot.pyrogramee.dark import get_arg
+from LelouchRobot import pbot as zaid
+from LelouchRobot.pyrogramee.dark import get_arg
 
 
 @zaid.on_message(filters.command("saavn"))
@@ -44,7 +44,7 @@ import os
 import aiofiles
 import aiohttp
 from pyrogram import filters
-from TGNRobot import pbot as zaid
+from LelouchRobot import pbot as zaid
 
 ARQ = "https://thearq.tech/"
 
@@ -98,7 +98,7 @@ import os
 import aiofiles
 import aiohttp
 from pyrogram import filters
-from TGNRobot import pbot as ASUNA
+from LelouchRobot import pbot as ASUNA
 
 ARQ = "https://thearq.tech/"
 
