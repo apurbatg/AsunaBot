@@ -106,12 +106,9 @@ HELP_STRINGS = """
 `ʏᴏᴜ ᴄᴀɴ ᴄʜᴏᴏꜱᴇ ᴀɴ ᴏᴘᴛɪᴏɴ ʙᴇʟᴏᴡ, ʙʏ ᴄʟɪᴄᴋɪɴɢ ᴀ ʙᴜᴛᴛᴏɴ..`
 ᴀʟꜱᴏ ʏᴏᴜ ᴄᴀɴ ᴀꜱᴋ ᴀɴʏᴛʜɪɴɢ ɪɴ ꜱᴜᴘᴘᴏʀᴛ ɢʀᴏᴜᴘ [❤️](https://telegra.ph/file/33f65e60966e458e5218a.jpg)"""
 
-START_IMG = "https://telegra.ph/file/33f65e60966e458e5218a.jpg"
+START_IMG = "https://telegra.ph/file/42b14446c9bb8cff9eda2.mp4"
 
-DONATE_STRING = """Heya, glad to hear you want to donate!
- You can support the project [Lucifer](t.me/detctective_de) \
- Supporting isnt always financial! [ ɴᴇᴛᴡᴏʀᴋ](https://t.me/Zaid_updates) \
- Those who cannot provide monetary support are welcome to help us develop the bot at ."""
+DONATE_STRING = """I m Free."""
 
 IMPORTED = {}
 MIGRATEABLE = []
@@ -224,7 +221,7 @@ def start(update: Update, context: CallbackContext):
             )
     else:
         update.effective_message.reply_video(
-            START_IMG, caption= "<code>Oi Oi Oi Baka Lelouch is awake❤\nI am Awake Since</code>: <code>{}</code>".format(
+            START_IMG, caption= "<code>Oi Oi Oi Baka Asuna is awake❤\nI am Awake Since</code>: <code>{}</code>".format(
                 uptime            
             ),
             parse_mode=ParseMode.HTML,
