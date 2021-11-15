@@ -76,7 +76,7 @@ def get_readable_time(seconds: int) -> str:
 PM_START_TEXT = """
 Hi, I am Asuna
 `I am a Anime themed Group management Bot! ʜɪᴛ` /help
- [❤](https://telegra.ph/file/84919743a83c80c870ac8.jpg)
+ [❤](https://telegra.ph/file/27256bc6bc8cee8ebf157.mp4)
 """
 
 buttons = [
