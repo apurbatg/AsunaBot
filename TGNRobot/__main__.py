@@ -87,7 +87,7 @@ buttons = [
     [
         InlineKeyboardButton(text="OFFTOPIC", url=f"https://t.me/animesecretchats"),
         InlineKeyboardButton(
-            text="SUPPORT", url=f"https://t.me/{SUPPORT_CHAT}"
+            text="SUPPORT", url=f"https://t.me/asunasupportchat"
         ),
     ],
     [
