@@ -10,7 +10,7 @@ from pyrogram.types import (
 )
 
 # By @TroJanzHEX
-from JisooX.Addons.ImageEditor.edit_1 import (  # pylint:disable=import-error
+from TGNRobot.Addons.ImageEditor.edit_1 import (  # pylint:disable=import-error
     black_white,
     box_blur,
     bright,
@@ -18,7 +18,7 @@ from JisooX.Addons.ImageEditor.edit_1 import (  # pylint:disable=import-error
     mix,
     normal_blur,
 )
-from JisooX.Addons.ImageEditor.edit_2 import (  # pylint:disable=import-error
+from TGNRobot.Addons.ImageEditor.edit_2 import (  # pylint:disable=import-error
     cartoon,
     circle_with_bg,
     circle_without_bg,
@@ -28,13 +28,13 @@ from JisooX.Addons.ImageEditor.edit_2 import (  # pylint:disable=import-error
     sepia_mode,
     sticker,
 )
-from JisooX.Addons.ImageEditor.edit_3 import (  # pylint:disable=import-error
+from TGNRobot.Addons.ImageEditor.edit_3 import (  # pylint:disable=import-error
     black_border,
     blue_border,
     green_border,
     red_border,
 )
-from JisooX.Addons.ImageEditor.edit_4 import (  # pylint:disable=import-error
+from TGNRobot.Addons.ImageEditor.edit_4 import (  # pylint:disable=import-error
     inverted,
     removebg_plain,
     removebg_sticker,
@@ -56,7 +56,7 @@ from JisooX.Addons.ImageEditor.edit_5 import (  # pylint:disable=import-error
     scanlineglitch_4,
     scanlineglitch_5,
 )
-from JisooX.pyrogramee.pyrogram import pbot as Client
+from TGNRobot.pyrogramee.pyrogram import pbot as Client
 
 lel = 00000000
 # pylint:disable=import-error
