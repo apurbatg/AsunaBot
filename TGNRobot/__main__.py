@@ -4,7 +4,7 @@ import re
 from sys import argv
 from typing import Optional
 
-from TGNRobot import (
+from ShasaBot import (
     ALLOW_EXCL,
     CERT_PATH,
     DONATION_LINK,
@@ -74,41 +74,38 @@ def get_readable_time(seconds: int) -> str:
 
 
 PM_START_TEXT = """
-Hi, I am Asuna
-`I am a Anime themed Group management Bot! ʜɪᴛ` /help
- [❤](https://telegra.ph/file/27256bc6bc8cee8ebf157.mp4)
+`Hellow` [🤗](https://telegra.ph/file/c4b69de63b6525efad6dd.jpg) `My name is` *Shasa*
+`I'm here to help you manage your groups! Hit` *📚Commands*   
 """
 
 buttons = [
     [
         InlineKeyboardButton(
-            text="ADD ASUNA TO YOUR GROUP", url="t.me/AsunaYuki_robot?startgroup=true"),
+            text="➕️ Add Shasa To Your Group ➕️", url="t.me/MissShasa_bot?startgroup=true"),
     ],
     [
-        InlineKeyboardButton(text="OFFTOPIC", url=f"https://t.me/animesecretchats"),
+        InlineKeyboardButton(text="About", callback_data="shasa_"),
         InlineKeyboardButton(
-            text="SUPPORT", url=f"https://t.me/asunasupportchat"
+            text="Support", url=f"https://t.me/{SUPPORT_CHAT}"
         ),
     ],
     [
-        InlineKeyboardButton(text="UPDATES", url=f"https://t.me/asuna_updates"),
-        InlineKeyboardButton(
-            text="BLACK X", url=f"https://t.me/Blackxofficial"
-        ),
-    ],
-    [
-        InlineKeyboardButton(text="ʜᴇʟᴘ ᴀɴᴅ ᴄᴏᴍᴍᴀɴᴅꜱ", callback_data="help_back"),
+        InlineKeyboardButton(text="Help & Commands❔", callback_data="help_back"),
     ],
 ]
 
 
 HELP_STRINGS = """
-`ʏᴏᴜ ᴄᴀɴ ᴄʜᴏᴏꜱᴇ ᴀɴ ᴏᴘᴛɪᴏɴ ʙᴇʟᴏᴡ, ʙʏ ᴄʟɪᴄᴋɪɴɢ ᴀ ʙᴜᴛᴛᴏɴ..`
-ᴀʟꜱᴏ ʏᴏᴜ ᴄᴀɴ ᴀꜱᴋ ᴀɴʏᴛʜɪɴɢ ɪɴ ꜱᴜᴘᴘᴏʀᴛ ɢʀᴏᴜᴘ [❤️](https://telegra.ph/file/33f65e60966e458e5218a.jpg)"""
+`Hi.. I'm` [Shasa🙋‍♀️](https://telegra.ph/file/c4b69de63b6525efad6dd.jpg)
+`Click on the buttons below to get documentation about specific modules..`"""
 
-START_IMG = "https://telegra.ph/file/42b14446c9bb8cff9eda2.mp4"
 
-DONATE_STRING = """I m Free."""
+shasa_IMG = "https://telegra.ph/file/c4b69de63b6525efad6dd.jpg"
+
+DONATE_STRING = """Heya, glad to hear you want to donate!
+ You can support the project via [Paypal](#) or by contacting @SimpleBoy786 \
+ Supporting isnt always financial! \
+ Those who cannot provide monetary support are welcome to help us develop the bot at ."""
 
 IMPORTED = {}
 MIGRATEABLE = []
@@ -121,7 +118,7 @@ CHAT_SETTINGS = {}
 USER_SETTINGS = {}
 
 for module_name in ALL_MODULES:
-    imported_module = importlib.import_module("TGNRobot.modules." + module_name)
+    imported_module = importlib.import_module("ShasaBot.modules." + module_name)
     if not hasattr(imported_module, "__mod_name__"):
         imported_module.__mod_name__ = imported_module.__name__
 
@@ -210,19 +207,16 @@ def start(update: Update, context: CallbackContext):
                 IMPORTED["rules"].send_rules(update, args[0], from_pm=True)
 
         else:
-            first_name = update.effective_user.first_name
             update.effective_message.reply_text(
-                PM_START_TEXT.format(
-                    escape_markdown(first_name),
-                    escape_markdown(context.bot.first_name)),
+                PM_START_TEXT,
                 reply_markup=InlineKeyboardMarkup(buttons),
                 parse_mode=ParseMode.MARKDOWN,
                 timeout=60,
             )
     else:
-        update.effective_message.reply_video(
-            START_IMG, caption= "<code>Oi Oi Oi Baka Asuna is awake❤\nI am Awake Since</code>: <code>{}</code>".format(
-                uptime            
+        update.effective_message.reply_text(
+            "I'm awake already!\n<b>Haven't slept since:</b> <code>{}</code>".format(
+                uptime
             ),
             parse_mode=ParseMode.HTML,
         )
@@ -352,32 +346,31 @@ def help_button(update, context):
 
 
 @run_async
-def zaid_about_callback(update, context):
+def shasa_about_callback(update, context):
     query = update.callback_query
-    if query.data == "zaid_":
+    if query.data == "shasa_":
         query.message.edit_text(
-            text=""" ℹ️ I am [TGN Robot](t.me/TGN_Ro_bot), a powerful group management bot built to help you manage your group easily.
+            text=""" ℹ️ I'm *Shasa*, a powerful group management bot built to help you manage your group easily.
                  \n❍ I can restrict users.
                  \n❍ I can greet users with customizable welcome messages and even set a group's rules.
                  \n❍ I have an advanced anti-flood system.
                  \n❍ I can warn users until they reach max warns, with each predefined actions such as ban, mute, kick, etc.
                  \n❍ I have a note keeping system, blacklists, and even predetermined replies on certain keywords.
                  \n❍ I check for admins' permissions before executing any command and more stuffs
-                 \n\n_TGN's licensed under the GNU General Public License v3.0_
-                 \n❍ Assistant @TGN\_Assistant.
-                 \nHere is the [💾Repository](https://github.com/Itsunknown-12/TGN-Robot).
-                 \n\nIf you have any question about bot, let us know at .""",
+                 \n\n_shasa's licensed under the GNU General Public License v3.0_
+                 \nHere is the [💾Repository](https://github.com/MdNoor786/ShasaBot).
+                 \n\nIf you have any question about shasa, let us know at .""",
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
                 [
                  [
-                    InlineKeyboardButton(text="Back", callback_data="zaid_back")
+                    InlineKeyboardButton(text="Back", callback_data="shasa_back")
                  ]
                 ]
             ),
         )
-    elif query.data == "zaid_back":
+    elif query.data == "shasa_back":
         query.message.edit_text(
                 PM_START_TEXT,
                 reply_markup=InlineKeyboardMarkup(buttons),
@@ -392,8 +385,8 @@ def Source_about_callback(update, context):
     query = update.callback_query
     if query.data == "source_":
         query.message.edit_text(
-            text=""" Hi..🤗 I am [Robot](t.me/TGN_Ro_Bot)
-                 \nHere is the [Source Code](https://github.com/Itsunknown-12/TGN-Robot) .""",
+            text=""" Hi..🤗 I'm *shasa*
+                 \nHere is the [Source Code](https://github.com/MdNoor786/ShasaBot) .""",
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
@@ -640,7 +633,7 @@ def donate(update: Update, context: CallbackContext):
             DONATE_STRING, parse_mode=ParseMode.MARKDOWN, disable_web_page_preview=True
         )
 
-        if OWNER_ID != 412094015 and DONATION_LINK:
+        if OWNER_ID != 254318997 and DONATION_LINK:
             update.effective_message.reply_text(
                 "You can also donate to the person currently running me "
                 "[here]({})".format(DONATION_LINK),
@@ -688,7 +681,7 @@ def main():
 
     if SUPPORT_CHAT is not None and isinstance(SUPPORT_CHAT, str):
         try:
-            dispatcher.bot.sendMessage(f"@{SUPPORT_CHAT}", "Yes I'm alive}")
+            dispatcher.bot.sendMessage(f"@{SUPPORT_CHAT}", "Yes I'm alive 😹")
         except Unauthorized:
             LOGGER.warning(
                 "Bot isnt able to send message to support_chat, go and check!"
@@ -705,7 +698,7 @@ def main():
     settings_handler = CommandHandler("settings", get_settings)
     settings_callback_handler = CallbackQueryHandler(settings_button, pattern=r"stngs_")
 
-    about_callback_handler = CallbackQueryHandler(zaid_about_callback, pattern=r"zaid_")
+    about_callback_handler = CallbackQueryHandler(shasa_about_callback, pattern=r"shasa_")
     source_callback_handler = CallbackQueryHandler(Source_about_callback, pattern=r"source_")
 
     donate_handler = CommandHandler("donate", donate)
