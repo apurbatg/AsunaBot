@@ -23,7 +23,7 @@ from telegram.ext import (
 from telegram.ext.dispatcher import DispatcherHandlerStop, run_async
 from telegram.utils.helpers import escape_markdown
 
-from Mizuki import (
+from TGNRobot import (
     ALLOW_EXCL,
     CERT_PATH,
     DONATION_LINK,
