@@ -10,7 +10,7 @@ from google_trans_new import google_translator
 from telethon import events
 from telethon.tl.types import ChatBannedRights
 from TGNRobot.conf import get_int_key, get_str_key
-from TGNRobot.services.telethonbasics import is_admin
+from TGNRobot.pyrogramee.telethonbasics import is_admin
 from TGNRobot.events import register
 from pymongo import MongoClient
 from TGNRobot.modules.sql.nsfw_watch_sql import (
