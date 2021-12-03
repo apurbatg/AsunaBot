@@ -27,7 +27,7 @@ from TGNRobot.modules.helper_funcs.extraction import (
 )
 from TGNRobot.modules.log_channel import loggable
 from TGNRobot.modules.helper_funcs.alternate import send_message
-from TGNRoboy.modules.helper_funcs.alternate import typing_action
+from TGNRobot.modules.helper_funcs.alternate import typing_action
 
 
 @run_async
@@ -656,6 +656,8 @@ __help__ = """
  ❍ /del*:* deletes the message you replied to
  ❍ /purge*:* deletes all messages between this and the replied to message.
  ❍ /purge <integer X>*:* deletes the replied message, and X messages following it if replied to a message.
+ ❍ /zombies: counts the number of deleted account in your group
+ ❍ /zombies clean: Remove deleted accounts from group..
 
 *Note:* Night Mode chats get Automatically closed at 12 am(IST)
 and Automatically openned at 6 am(IST) To Prevent Night Spams.
