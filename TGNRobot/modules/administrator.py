@@ -1,15 +1,15 @@
 import html
 from typing import Optional
-from SAD.__main__ import CHAT_SETTINGS
+from TGNRobot.__main__ import CHAT_SETTINGS
 
 from telegram import ParseMode, Update
 from telegram.error import BadRequest
 from telegram.ext import CallbackContext, CommandHandler, Filters, run_async
 from telegram.utils.helpers import mention_html
 
-from SAD import DRAGONS, dispatcher
-from SAD.modules.disable import DisableAbleCommandHandler
-from SAD.modules.helper_funcs.chat_status import (
+from TGNRobot import DRAGONS, dispatcher
+from TGNRobot.modules.disable import DisableAbleCommandHandler
+from TGNRobot.modules.helper_funcs.chat_status import (
     bot_admin,
     can_pin,
     can_promote,
@@ -18,12 +18,12 @@ from SAD.modules.helper_funcs.chat_status import (
     ADMIN_CACHE,
 )
 
-from SAD.modules.helper_funcs.extraction import (
+from TGNRobot.modules.helper_funcs.extraction import (
     extract_user,
     extract_user_and_text,
 )
-from SAD.modules.log_channel import loggable
-from SAD.modules.helper_funcs.alternate import send_message
+from TGNRobot.modules.log_channel import loggable
+from TGNRobot.modules.helper_funcs.alternate import send_message
 
 
 @run_async
