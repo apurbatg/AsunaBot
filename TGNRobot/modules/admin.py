@@ -16,7 +16,7 @@ from TGNRobot.modules.helper_funcs.chat_status import (
     ADMIN_CACHE,
 )
 
-from TGNRobot.modules.helper_funcs.admin_rights import user_can_changeinfo, user_can_promote
+from TGNRobot.helper_extra.admin_rights import user_can_changeinfo, user_can_promote
 from TGNRobot.modules.helper_funcs.extraction import (
     extract_user,
     extract_user_and_text,
