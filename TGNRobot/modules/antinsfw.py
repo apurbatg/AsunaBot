@@ -1,15 +1,39 @@
-from os import remove
+"""
+MIT License
 
+Copyright (C) 2017-2019, Paul Larsen
+Copyright (C) 2021 Awesome-RJ
+Copyright (c) 2021, Yūki • Black Knights Union, <https://github.com/Awesome-RJ/CutiepiiRobot>
+
+This file is part of @Cutiepii_Robot (Telegram Bot)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+
+furnished to do so, subject to the following conditions:
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+"""
+
+from os import remove
 from pyrogram import filters
 
-from TGNRobot import BOT_USERNAME as bn
-from TGNRobot import pbot, arq
+from TGNRobot import DRAGONS, BOT_USERNAME, arq, pgram
 from TGNRobot.utils.errors import capture_err
 from TGNRobot.pyrogramee.pluginshelper import admins_only
-from TGNRobot.nsfwmongo import is_nsfw_on, nsfw_off, nsfw_on
-from TGNRobot.utils.filter_groups import nsfw_detect_group
+from TGNRobot.nsfw_mongo import is_nsfw_on, nsfw_off, nsfw_on
 
-__mod_name__ = "Anti-NSFW​"
 
 async def get_file_id_from_message(message):
     file_id = None
@@ -17,7 +41,7 @@ async def get_file_id_from_message(message):
         if int(message.document.file_size) > 3145728:
             return
         mime_type = message.document.mime_type
-        if mime_type != "image/png" and mime_type != "image/jpeg":
+        if mime_type not in ("image/png", "image/jpeg"):
             return
         file_id = message.document.file_id
 
@@ -44,7 +68,7 @@ async def get_file_id_from_message(message):
     return file_id
 
 
-@pbot.on_message(
+@pgram.on_message(
     (
         filters.document
         | filters.photo
@@ -53,7 +77,7 @@ async def get_file_id_from_message(message):
         | filters.video
     )
     & ~filters.private,
-    group=nsfw_detect_group,
+    group=8,
 )
 @capture_err
 async def detect_nsfw(_, message):
@@ -64,7 +88,7 @@ async def detect_nsfw(_, message):
     file_id = await get_file_id_from_message(message)
     if not file_id:
         return
-    file = await pbot.download_media(file_id)
+    file = await pgram.download_media(file_id)
     try:
         results = await arq.nsfw_scan(file=file)
     except Exception:
@@ -74,6 +98,8 @@ async def detect_nsfw(_, message):
     results = results.result
     remove(file)
     nsfw = results.is_nsfw
+    if message.from_user.id in DRAGONS:
+        return
     if not nsfw:
         return
     try:
@@ -83,25 +109,25 @@ async def detect_nsfw(_, message):
     await message.reply_text(
         f"""
 **NSFW Image Detected & Deleted Successfully!
-————————————————————————**
+————————————————————**
 **User:** {message.from_user.mention} [`{message.from_user.id}`]
 **Safe:** `{results.neutral} %`
 **Porn:** `{results.porn} %`
 **Adult:** `{results.sexy} %`
 **Hentai:** `{results.hentai} %`
 **Drawings:** `{results.drawings} %`
-**————————————————————————**
-__Use `/antinsfw off` to disable this.__
+**————————————————————**
+__Powered by__@Yuki_Network.
 """
     )
 
 
-@pbot.on_message(filters.command("nsfwscan"))
+@pgram.on_message(filters.command(["nsfwscan", f"nsfwscan@{BOT_USERNAME}"]))
 @capture_err
 async def nsfw_scan_command(_, message):
     if not message.reply_to_message:
         await message.reply_text(
-            "`Reply to an image/document/sticker/animation to scan it.`"
+            "Reply to an image/document/sticker/animation to scan it."
         )
         return
     reply = message.reply_to_message
@@ -113,14 +139,14 @@ async def nsfw_scan_command(_, message):
         and not reply.video
     ):
         await message.reply_text(
-            "`Reply to an image/document/sticker/animation to scan it.`"
+            "Reply to an image/document/sticker/animation to scan it."
         )
         return
-    m = await message.reply_text("`Scanning...`")
+    m = await message.reply_text("Scanning")
     file_id = await get_file_id_from_message(reply)
     if not file_id:
-        return await m.edit("`Something wrong happened LOL`")
-    file = await pbot.download_media(file_id)
+        return await m.edit("Something wrong happened.")
+    file = await pgram.download_media(file_id)
     try:
         results = await arq.nsfw_scan(file=file)
     except Exception:
@@ -141,26 +167,26 @@ async def nsfw_scan_command(_, message):
     )
 
 
-@pbot.on_message(filters.command("antinsfw") & ~filters.private)
+@pgram.on_message(filters.command(["antinsfw", f"antinsfw@{BOT_USERNAME}"]) & ~filters.private)
 @adminsOnly("can_change_info")
 async def nsfw_enable_disable(_, message):
     if len(message.command) != 2:
         await message.reply_text(
-            "Usage: /antinsfw [on | off]"
+            "Usage: /antinsfw [on/off]"
         )
         return
     status = message.text.split(None, 1)[1].strip()
     status = status.lower()
     chat_id = message.chat.id
-    if status == "on":
-        nsfw_on(chat_id)
+    if status in ("on", "yes"):
+        await nsfw_on(chat_id)
         await message.reply_text(
             "Enabled AntiNSFW System. I will Delete Messages Containing Inappropriate Content."
         )
-    elif status == "off":
-        nsfw_off(chat_id)
+    elif status in ("off", "no"):
+        await nsfw_off(chat_id)
         await message.reply_text("Disabled AntiNSFW System.")
     else:
         await message.reply_text(
-            "`Unknown Suffix, Use /antinsfw [enable|disable]`"
+            "Unknown Suffix, Use /antinsfw [on/off]"
         )
