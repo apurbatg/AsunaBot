@@ -787,6 +787,7 @@ dispatcher.add_handler(UNPIN_HANDLER)
 dispatcher.add_handler(INVITE_HANDLER)
 dispatcher.add_handler(PROMOTE_HANDLER)
 dispatcher.add_handler(DEMOTE_HANDLER)
+dispatcher.add_handler(FULLPROMOTE_HANDLER)
 dispatcher.add_handler(SET_TITLE_HANDLER)
 dispatcher.add_handler(ADMIN_REFRESH_HANDLER)
 dispatcher.add_handler(CHAT_PIC_HANDLER)
@@ -803,6 +804,7 @@ __command_list__ = [
     "promote",
     "demote",
     "admincache",
+    "fullpromote",
 ]
 __handlers__ = [
     ADMINLIST_HANDLER,
@@ -810,6 +812,7 @@ __handlers__ = [
     UNPIN_HANDLER,
     INVITE_HANDLER,
     PROMOTE_HANDLER,
+    FULLPROMOTE_HANDLER,
     DEMOTE_HANDLER,
     SET_TITLE_HANDLER,
     ADMIN_REFRESH_HANDLER,
