@@ -6,7 +6,7 @@ from TGNRobot import BOT_USERNAME as bn
 from TGNRobot import pbot, arq
 from TGNRobot.utils.errors import capture_err
 from TGNRobot.pyrogramee.pluginshelper import admins_only
-from TGNRobot.ex_plugins.nsfwmongo import is_nsfw_on, nsfw_off, nsfw_on
+from TGNRobot.nsfwmongo import is_nsfw_on, nsfw_off, nsfw_on
 from TGNRobot.utils.filter_groups import nsfw_detect_group
 
 __mod_name__ = "Anti-NSFW​"
