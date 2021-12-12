@@ -6,3 +6,5 @@
  - innexia - for some Button And Helps
 
 
+Deploy - https://heroku.com/deploy/?template=https://github.com/apurbatg/AsunaBot
+
